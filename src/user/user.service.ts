@@ -8,6 +8,7 @@ import { userResponse } from './dto/user-response.dto';
 @Injectable()
 export class UserService {
   constructor(private readonly prismaService: PrismaService) { }
+
   async create(createUserDto: CreateUserDto) {
     const user = await this.prismaService.user.create({
       data: createUserDto

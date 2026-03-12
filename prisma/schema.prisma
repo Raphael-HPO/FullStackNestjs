@@ -5,12 +5,13 @@
 
 generator client {
   provider     = "prisma-client"
-  // output       = "../generated/prisma"
+  output       = "../generated/prisma"
   moduleFormat = "cjs"
 }
 
 datasource db {
   provider = "postgresql"
+  url = env("DATABASE-URL")
 }
 
 model user {
