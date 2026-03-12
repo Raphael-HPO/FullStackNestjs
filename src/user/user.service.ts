@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
-import { userWhereUniqueInput } from 'generated/prisma/models';
 import { plainToInstance } from 'class-transformer';
 import { userResponse } from './dto/user-response.dto';
 
@@ -20,7 +19,6 @@ export class UserService {
 
   async findAll() {
     return await this.prismaService.user.findMany()
-    return `This action returns all user`;
   }
 
   async findOne(id: number) {
@@ -41,6 +39,5 @@ export class UserService {
     return await this.prismaService.user.delete({
       where: { id }
     })
-    return `This action removes a #${id} user`;
   }
 }
